@@ -61,11 +61,11 @@ app.patch('/api/products/:name', (req, res) => {
 
 // delete products 
 
-app.delete('/api/products/:name', (req, res) => {
+app.delete('/api/products/:id', (req, res) => {
   console.log(req.params)
-  const name = req.params.name
-  products = products.filter(product => product.name !== name)
-  res.json({ message: `product ${name} has been deleted` })
+ const id = Number(req.params.id);
+  products = products.filter(product => product.id !== id)
+  res.json({ message: `product ${id} has been deleted` })
 })
 
 app.listen(port, () => {
